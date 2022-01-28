@@ -19,9 +19,7 @@ ATarget::ATarget()
 void ATarget::BeginPlay()
 {
 	Super::BeginPlay();
-	Hitbox->OnComponentBeginOverlap.AddDynamic(this, &ATarget::OnOverlapBegin);
-	Hitbox->OnComponentEndOverlap.AddDynamic(this, &ATarget::OnOverlapEnd);
-
+	Hitbox->OnComponentBeginOverlap.AddDynamic(this, &ATarget::OnOverlap);
 }
 
 // Called every frame
@@ -31,14 +29,13 @@ void ATarget::Tick(float DeltaTime)
 
 }
 
-void ATarget::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void ATarget::OnOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	UE_LOG(LogTemp, Warning, TEXT("stepping on"));
-}
-
-void ATarget::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	UE_LOG(LogTemp, Warning, TEXT("stepping off"));
+	//if (OtherActor->IsA(Bullet) && traveltime>1.f) //stoppe deg fra å teleporte på stedet du står
+	//{
+	//	teleport playercharacter hit
+	//}
 }
 
 
