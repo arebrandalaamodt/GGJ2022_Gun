@@ -99,3 +99,4 @@ Config/SteamVRBindings/vive_tracker_right_knee.json
 Config/SteamVRBindings/vive_tracker_right_shoulder.json
 Config/SteamVRBindings/vive_tracker_waist.json
 Gun.uproject
+Config/steamvr_ue_editor_app.json
